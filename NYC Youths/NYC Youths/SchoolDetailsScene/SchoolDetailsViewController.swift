@@ -27,6 +27,9 @@ class SchoolDetailsViewController: UIViewController, SchoolDetailsDisplayLogic
     @IBOutlet weak var mathScoreLabel: UILabel!
     @IBOutlet weak var writingScoreLabel: UILabel!
     
+    @IBOutlet weak var websiteLabel: UILabel!
+    
+    
     
     var interactor: SchoolDetailsBusinessLogic?
     var router: (NSObjectProtocol & SchoolDetailsRoutingLogic & SchoolDetailsDataPassing)?
@@ -85,6 +88,7 @@ class SchoolDetailsViewController: UIViewController, SchoolDetailsDisplayLogic
         readingScore.text = schoolDetails.criticalReadingAvg
         mathScoreLabel.text = schoolDetails.mathAvg
         writingScoreLabel.text = schoolDetails.writingAvg
+        websiteLabel.text = "View more at: \(schoolDetails.website)"
     }
     
     // MARK: Do something

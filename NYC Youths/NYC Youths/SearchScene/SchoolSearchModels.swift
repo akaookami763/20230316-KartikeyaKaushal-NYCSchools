@@ -13,7 +13,7 @@
 
 /// Network model for getting School data
 struct School: Codable {
-    let dbn, boro, neighborhood, location: String?
+    let dbn, boro, neighborhood, location, website: String?
     let schoolName, overviewParagraph: String?
     let school10thSeats: String?
     let ellPrograms, languageClasses, advancedPlacementCourses, diplomaEndorsements: String?
@@ -21,7 +21,7 @@ struct School: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case dbn, boro, neighborhood, location
+        case dbn, boro, neighborhood, location, website
         case schoolName = "school_name"
         case overviewParagraph = "overview_paragraph"
         case school10thSeats = "school_10th_seats"
@@ -55,21 +55,22 @@ struct SATScores: Codable {
 
 /// This is the in app model we will use for the School and any relavent data
 struct SchoolData {
-    let dbn, boro, neighborhood, location: String
+    let dbn, boro, neighborhood, location, website: String
     let schoolName, overviewParagraph: String
     let numberOfSATParticipants, criticalReadingAvg, mathAvg, writingAvg: String
     
     init(school: School, satScores: SATScores) {
-        self.dbn = school.dbn ?? ""
-        self.schoolName = school.schoolName ?? ""
-        self.overviewParagraph = school.overviewParagraph ?? ""
-        self.boro = school.boro ?? ""
-        self.neighborhood = school.neighborhood ?? ""
-        self.location = school.location ?? ""
-        self.numberOfSATParticipants = satScores.numberOfParticipants ?? ""
-        self.criticalReadingAvg = satScores.criticalReadingAvg ?? ""
-        self.mathAvg = satScores.mathAvg ?? ""
-        self.writingAvg = satScores.writingAvg ?? ""
+        self.dbn = school.dbn ?? "Empty"
+        self.schoolName = school.schoolName ?? "Empty"
+        self.overviewParagraph = school.overviewParagraph ?? "Empty"
+        self.boro = school.boro ?? "Empty"
+        self.neighborhood = school.neighborhood ?? "Empty"
+        self.location = school.location ?? "Empty"
+        self.website = school.website ?? "Empty"
+        self.numberOfSATParticipants = satScores.numberOfParticipants ?? "Empty"
+        self.criticalReadingAvg = satScores.criticalReadingAvg ?? "Empty"
+        self.mathAvg = satScores.mathAvg ?? "Empty"
+        self.writingAvg = satScores.writingAvg ?? "Empty"
     }
 
 }
