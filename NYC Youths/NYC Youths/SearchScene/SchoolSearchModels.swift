@@ -10,6 +10,8 @@
 //  see http://clean-swift.com
 //
 
+
+/// Network model for getting School data
 struct School: Codable {
     let dbn, boro, neighborhood, location: String?
     let schoolName, overviewParagraph: String?
@@ -35,6 +37,8 @@ struct School: Codable {
     }
 }
 
+
+/// Network Model for getting SAT Score data
 struct SATScores: Codable {
     let dbn, schoolName, numberOfParticipants, criticalReadingAvg, mathAvg, writingAvg: String?
     
@@ -48,6 +52,8 @@ struct SATScores: Codable {
     }
 }
 
+
+/// This is the in app model we will use for the School and any relavent data
 struct SchoolData {
     let dbn, boro, neighborhood, location: String
     let schoolName, overviewParagraph: String

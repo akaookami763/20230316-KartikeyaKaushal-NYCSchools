@@ -21,6 +21,13 @@ class SchoolDetailsViewController: UIViewController, SchoolDetailsDisplayLogic
 {
     @IBOutlet weak var schoolNameLabel: UILabel!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet weak var readingScore: UILabel!
+    @IBOutlet weak var mathScoreLabel: UILabel!
+    @IBOutlet weak var writingScoreLabel: UILabel!
+    
+    
     var interactor: SchoolDetailsBusinessLogic?
     var router: (NSObjectProtocol & SchoolDetailsRoutingLogic & SchoolDetailsDataPassing)?
     
@@ -74,6 +81,10 @@ class SchoolDetailsViewController: UIViewController, SchoolDetailsDisplayLogic
     {
         super.viewDidLoad()
         schoolNameLabel.text = schoolDetails.schoolName
+        descriptionTextView.text = schoolDetails.overviewParagraph
+        readingScore.text = schoolDetails.criticalReadingAvg
+        mathScoreLabel.text = schoolDetails.mathAvg
+        writingScoreLabel.text = schoolDetails.writingAvg
     }
     
     // MARK: Do something

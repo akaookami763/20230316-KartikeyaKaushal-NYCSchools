@@ -22,12 +22,12 @@ protocol SchoolSearchBusinessLogic
 
 protocol SchoolSearchDataStore
 {
-    var schools: [SchoolData]! {get}
+    var schools: [SchoolData] {get}
 }
 
 class SchoolSearchInteractor: SchoolSearchBusinessLogic, SchoolSearchDataStore, SchoolSearchWorkerDelegate
 {
-    var schools: [SchoolData]!
+    var schools: [SchoolData] = []
     
     var presenter: SchoolSearchPresentationLogic?
     var worker: SchoolSearchWorker?
