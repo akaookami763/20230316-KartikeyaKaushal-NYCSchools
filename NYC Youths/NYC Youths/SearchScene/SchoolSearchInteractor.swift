@@ -14,20 +14,23 @@
 protocol SchoolSearchBusinessLogic
 {
     func performStartingActions()
+    
+    func performSchoolSearch(text: String)
+    
+    func performSchoolDetailsAcquisition(name: String)
 }
 
 protocol SchoolSearchDataStore
 {
-    var schools: [School]! {get}
+    var schools: [SchoolData]! {get}
 }
 
 class SchoolSearchInteractor: SchoolSearchBusinessLogic, SchoolSearchDataStore, SchoolSearchWorkerDelegate
 {
-    var schools: [School]!
+    var schools: [SchoolData]!
     
     var presenter: SchoolSearchPresentationLogic?
     var worker: SchoolSearchWorker?
-    //var name: String = ""
     
     // MARK: Do something
     
@@ -37,13 +40,32 @@ class SchoolSearchInteractor: SchoolSearchBusinessLogic, SchoolSearchDataStore, 
         worker?.getData()
     }
     
+    func performSchoolSearch(text: String) {
+        var filteredSchools: [SchoolData] = self.schools
+        if(text.count > 1) {
+            filteredSchools = schools.filter { school in
+                school.schoolName.contains(text)
+            }
+        }
+        presenter?.presentSchoolData(data: filteredSchools)
+    }
+    
+    func performSchoolDetailsAcquisition(name: String) {
+        let school = schools.filter { schoolInfo in
+            schoolInfo.schoolName == name
+        }[0]
+        
+        presenter?.presentSchoolDetails(school: school)
+    }
+    
     // MARK: Worker Delegate Functions
     
     func handleSchoolData(_ data: [SchoolData]) {
-        print(data)
+        schools = data
+        presenter?.presentSchoolData(data: data)
     }
     
     func handleError(_ error: Error) {
-        print(error)
+        print("Got an error getting data: \(error)")
     }
 }

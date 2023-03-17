@@ -10,10 +10,13 @@
 //  see http://clean-swift.com
 //
 
+import Foundation
 
 protocol SchoolSearchPresentationLogic
 {
     func presentSchoolData(data: [SchoolData])
+    
+    func presentSchoolDetails(school: SchoolData)
 }
 
 class SchoolSearchPresenter: SchoolSearchPresentationLogic
@@ -24,6 +27,12 @@ class SchoolSearchPresenter: SchoolSearchPresentationLogic
     
     func presentSchoolData(data: [SchoolData])
     {
-        viewController?.displaySchoolList(data: data)
+        DispatchQueue.main.async {
+            self.viewController?.displaySchoolList(data: data)
+        }
+    }
+    
+    func presentSchoolDetails(school: SchoolData) {
+        viewController?.displaySchoolDetails(school)
     }
 }

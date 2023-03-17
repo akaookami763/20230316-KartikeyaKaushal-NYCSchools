@@ -15,12 +15,20 @@ import UIKit
 protocol SchoolSearchDisplayLogic: AnyObject
 {
     func displaySchoolList(data: [SchoolData])
+    
+    func displaySchoolDetails(_ school: SchoolData)
 }
 
 class SchoolSearchViewController: UIViewController, SchoolSearchDisplayLogic
 {
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var schoolListTableView: UITableView!
+    
     var interactor: SchoolSearchBusinessLogic?
     var router: (NSObjectProtocol & SchoolSearchRoutingLogic & SchoolSearchDataPassing)?
+    
+    var listData: [SchoolData] = []
     
     // MARK: Object lifecycle
     
@@ -69,14 +77,62 @@ class SchoolSearchViewController: UIViewController, SchoolSearchDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.searchBar.delegate = self
+        self.schoolListTableView.delegate = self
+        self.schoolListTableView.dataSource = self
         interactor?.performStartingActions()
+        
+        self.hideKeyboard()
     }
     
     // MARK: Display Logic
     
     func displaySchoolList(data: [SchoolData]) {
-        //TBD
+        listData = data
+        schoolListTableView.reloadData()
     }
     
+    func displaySchoolDetails(_ school: SchoolData) {
+        router?.routeToSchoolDetails(segue: nil, schoolData: school)
+    }
     
 }
+
+// MARK: TableView Logic
+
+extension SchoolSearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listData.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableCell = UITableViewCell()
+        var defaultContent = tableCell.defaultContentConfiguration()
+        defaultContent.text = listData[indexPath.row].schoolName
+        
+        tableCell.contentConfiguration = defaultContent
+        
+        return tableCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let school = listData[indexPath.row]
+        self.interactor?.performSchoolDetailsAcquisition(name: school.schoolName)
+    }
+}
+
+// MARK: SearchBar Logic
+
+extension SchoolSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        interactor?.performSchoolSearch(text: searchText)
+    }
+}
+
+// MARK: Cell Configuration
+

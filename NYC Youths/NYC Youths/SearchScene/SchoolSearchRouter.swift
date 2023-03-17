@@ -12,49 +12,36 @@
 
 import UIKit
 
-@objc protocol SchoolSearchRoutingLogic
+protocol SchoolSearchRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSchoolDetails(segue: UIStoryboardSegue?, schoolData: SchoolData)
 }
 
 protocol SchoolSearchDataPassing
 {
-  var dataStore: SchoolSearchDataStore? { get }
+    var dataStore: SchoolSearchDataStore? { get }
 }
 
 class SchoolSearchRouter: NSObject, SchoolSearchRoutingLogic, SchoolSearchDataPassing
 {
-  weak var viewController: SchoolSearchViewController?
-  var dataStore: SchoolSearchDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: SchoolSearchViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: SchoolSearchDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: SchoolSearchViewController?
+    var dataStore: SchoolSearchDataStore?
+    
+    func routeToSchoolDetails(segue: UIStoryboardSegue?, schoolData: SchoolData) {
+        var destination: SchoolDetailsViewController!
+        
+        if let segue = segue {
+            destination = (segue.destination as! SchoolDetailsViewController)
+        }
+        else {
+            let storyboard = UIStoryboard(name: "SchoolDetails", bundle: nil)
+            destination = storyboard.instantiateInitialViewController()
+        }
+        destination.schoolDetails = schoolData
+        self.navigateToSchoolDetails(source: viewController!, destination: destination)
+    }
+    
+    func navigateToSchoolDetails(source: SchoolSearchViewController, destination: SchoolDetailsViewController) {
+        source.show(destination, sender: nil)
+    }
 }
