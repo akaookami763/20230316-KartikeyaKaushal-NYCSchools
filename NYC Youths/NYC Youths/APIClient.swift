@@ -9,10 +9,9 @@ import Foundation
 import Combine
 
 struct APIClient {
+    private var network: URLSessionProtocol
     
-    var network: URLSession
-    
-    init(network: URLSession = URLSession.shared) {
+    init(network: URLSessionProtocol = URLSession.shared) {
         self.network = network
     }
     
@@ -24,7 +23,7 @@ struct APIClient {
     
     func run<T: Decodable>(_ request: URLRequest) -> Future<T, Error> {
         return Future { promise in
-            let task = self.network.dataTask(with: request) {data, response, error in
+            let task = self.network.requestDataTask(with: request) {data, response, error in
                 //Network call error scenario
                 if let err = error {
                     promise(.failure(err))

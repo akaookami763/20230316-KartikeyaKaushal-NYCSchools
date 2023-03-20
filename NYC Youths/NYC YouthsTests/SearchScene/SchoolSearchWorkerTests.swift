@@ -18,13 +18,15 @@ class SchoolSearchWorkerTests: XCTestCase
     // MARK: Subject under test
     
     var sut: SchoolSearchWorker!
+    var delegateTest: SchoolSearchWorkerDelegateTest!
     
     // MARK: Test lifecycle
     
     override func setUp()
     {
         super.setUp()
-        setupSchoolSearchWorker()
+        delegateTest = SchoolSearchWorkerDelegateTest()
+        sut = SchoolSearchWorker(delegate: delegateTest)
     }
     
     override func tearDown()
@@ -34,12 +36,17 @@ class SchoolSearchWorkerTests: XCTestCase
     
     // MARK: Test setup
     
-    func setupSchoolSearchWorker()
-    {
-        sut = SchoolSearchWorker()
-    }
-    
     // MARK: Test doubles
+    
+    struct SchoolSearchWorkerDelegateTest: SchoolSearchWorkerDelegate {
+        func handleSchoolData(_ data: [SchoolData]) {
+            XCTAssert(data.count > 0)
+        }
+        
+        func handleError(_ error: Error) {
+            XCTAssertNotNil(error)
+        }
+    }
     
     // MARK: Tests
     

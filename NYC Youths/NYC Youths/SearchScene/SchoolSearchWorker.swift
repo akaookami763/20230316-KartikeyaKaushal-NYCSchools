@@ -51,7 +51,7 @@ class SchoolSearchWorker: SchoolSearchWorkerDefinition
             case .failure(let error):
                 self.delegate?.handleError(error)
             case .finished:
-                //Done.  We just get the value from here
+                //Done.  We just get the value from here in the next block
                 break
             }
         }, receiveValue: { (schools, scores) in

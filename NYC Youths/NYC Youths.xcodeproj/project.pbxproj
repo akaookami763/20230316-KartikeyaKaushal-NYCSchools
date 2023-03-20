@@ -14,7 +14,15 @@
 		2A6566F129C4C26C00FE770E /* SchoolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566EB29C4C26C00FE770E /* SchoolDetailsViewController.swift */; };
 		2A6566F229C4C26C00FE770E /* SchoolDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566EC29C4C26C00FE770E /* SchoolDetailsInteractor.swift */; };
 		2A6566F729C4C2D300FE770E /* SchoolDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6566F629C4C2D300FE770E /* SchoolDetails.storyboard */; };
-		2A6566FA29C4D0E600FE770E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566F929C4D0E600FE770E /* File.swift */; };
+		2A6566FA29C4D0E600FE770E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566F929C4D0E600FE770E /* UIViewController+.swift */; };
+		2A6566FC29C8A42C00FE770E /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566FB29C8A42C00FE770E /* APIClientTests.swift */; };
+		2A6566FE29C8A57E00FE770E /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566FD29C8A57E00FE770E /* MockURLSession.swift */; };
+		2A6566FF29C8B78700FE770E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52229C22E7B009D5074 /* APIClient.swift */; };
+		2A65670029C8B8BF00FE770E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52229C22E7B009D5074 /* APIClient.swift */; };
+		2A65670229C8B9CA00FE770E /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670129C8B9CA00FE770E /* URLSession+.swift */; };
+		2A65670329C8BAFA00FE770E /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670129C8B9CA00FE770E /* URLSession+.swift */; };
+		2A65670529C8BD6800FE770E /* URLSessionDataTask+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */; };
+		2A65670629C8C1CF00FE770E /* URLSessionDataTask+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */; };
 		2AD8C4DD29C22B70009D5074 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4DC29C22B70009D5074 /* AppDelegate.swift */; };
 		2AD8C4DF29C22B70009D5074 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4DE29C22B70009D5074 /* SceneDelegate.swift */; };
 		2AD8C4E129C22B70009D5074 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4E029C22B70009D5074 /* ViewController.swift */; };
@@ -34,7 +42,6 @@
 		2AD8C51F29C22C30009D5074 /* SchoolSearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51B29C22C30009D5074 /* SchoolSearchInteractorTests.swift */; };
 		2AD8C52029C22C30009D5074 /* SchoolSearchWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51C29C22C30009D5074 /* SchoolSearchWorkerTests.swift */; };
 		2AD8C52129C22C30009D5074 /* SchoolSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51D29C22C30009D5074 /* SchoolSearchPresenterTests.swift */; };
-		2AD8C52329C22E7B009D5074 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52229C22E7B009D5074 /* APIClient.swift */; };
 		2AD8C52529C269B2009D5074 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52429C269B2009D5074 /* MockAPIClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +70,11 @@
 		2A6566EB29C4C26C00FE770E /* SchoolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewController.swift; sourceTree = "<group>"; };
 		2A6566EC29C4C26C00FE770E /* SchoolDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsInteractor.swift; sourceTree = "<group>"; };
 		2A6566F629C4C2D300FE770E /* SchoolDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SchoolDetails.storyboard; sourceTree = "<group>"; };
-		2A6566F929C4D0E600FE770E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		2A6566F929C4D0E600FE770E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		2A6566FB29C8A42C00FE770E /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		2A6566FD29C8A57E00FE770E /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		2A65670129C8B9CA00FE770E /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
+		2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSessionDataTask+.swift"; sourceTree = "<group>"; };
 		2AD8C4D929C22B70009D5074 /* NYC Youths.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYC Youths.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD8C4DC29C22B70009D5074 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD8C4DE29C22B70009D5074 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,7 +152,9 @@
 		2A6566F829C4D0DA00FE770E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2A6566F929C4D0E600FE770E /* File.swift */,
+				2A6566F929C4D0E600FE770E /* UIViewController+.swift */,
+				2A65670129C8B9CA00FE770E /* URLSession+.swift */,
+				2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +203,8 @@
 				2AD8C51929C22C10009D5074 /* SearchScene */,
 				2AD8C4F329C22B74009D5074 /* NYC_YouthsTests.swift */,
 				2AD8C52429C269B2009D5074 /* MockAPIClient.swift */,
+				2A6566FB29C8A42C00FE770E /* APIClientTests.swift */,
+				2A6566FD29C8A57E00FE770E /* MockURLSession.swift */,
 			);
 			path = "NYC YouthsTests";
 			sourceTree = "<group>";
@@ -360,17 +375,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6566EE29C4C26C00FE770E /* SchoolDetailsWorker.swift in Sources */,
+				2A65670529C8BD6800FE770E /* URLSessionDataTask+.swift in Sources */,
+				2A6566FF29C8B78700FE770E /* APIClient.swift in Sources */,
+				2A65670229C8B9CA00FE770E /* URLSession+.swift in Sources */,
 				2A6566F229C4C26C00FE770E /* SchoolDetailsInteractor.swift in Sources */,
 				2AD8C51729C22BBE009D5074 /* SchoolSearchViewController.swift in Sources */,
 				2AD8C51829C22BBE009D5074 /* SchoolSearchInteractor.swift in Sources */,
 				2AD8C51529C22BBE009D5074 /* SchoolSearchRouter.swift in Sources */,
-				2AD8C52329C22E7B009D5074 /* APIClient.swift in Sources */,
 				2AD8C51329C22BBE009D5074 /* SchoolSearchPresenter.swift in Sources */,
 				2AD8C4E129C22B70009D5074 /* ViewController.swift in Sources */,
 				2A6566EF29C4C26C00FE770E /* SchoolDetailsRouter.swift in Sources */,
 				2AD8C4DD29C22B70009D5074 /* AppDelegate.swift in Sources */,
 				2A6566ED29C4C26C00FE770E /* SchoolDetailsPresenter.swift in Sources */,
-				2A6566FA29C4D0E600FE770E /* File.swift in Sources */,
+				2A6566FA29C4D0E600FE770E /* UIViewController+.swift in Sources */,
 				2A6566F129C4C26C00FE770E /* SchoolDetailsViewController.swift in Sources */,
 				2AD8C51429C22BBE009D5074 /* SchoolSearchWorker.swift in Sources */,
 				2AD8C4DF29C22B70009D5074 /* SceneDelegate.swift in Sources */,
@@ -383,12 +400,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6566FE29C8A57E00FE770E /* MockURLSession.swift in Sources */,
+				2A65670629C8C1CF00FE770E /* URLSessionDataTask+.swift in Sources */,
 				2AD8C52129C22C30009D5074 /* SchoolSearchPresenterTests.swift in Sources */,
 				2AD8C51F29C22C30009D5074 /* SchoolSearchInteractorTests.swift in Sources */,
 				2AD8C51E29C22C30009D5074 /* SchoolSearchViewControllerTests.swift in Sources */,
+				2A65670329C8BAFA00FE770E /* URLSession+.swift in Sources */,
+				2A6566FC29C8A42C00FE770E /* APIClientTests.swift in Sources */,
 				2AD8C4F429C22B74009D5074 /* NYC_YouthsTests.swift in Sources */,
 				2AD8C52029C22C30009D5074 /* SchoolSearchWorkerTests.swift in Sources */,
 				2AD8C52529C269B2009D5074 /* MockAPIClient.swift in Sources */,
+				2A65670029C8B8BF00FE770E /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
