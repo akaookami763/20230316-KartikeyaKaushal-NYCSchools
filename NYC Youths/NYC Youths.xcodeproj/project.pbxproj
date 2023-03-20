@@ -18,11 +18,8 @@
 		2A6566FC29C8A42C00FE770E /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566FB29C8A42C00FE770E /* APIClientTests.swift */; };
 		2A6566FE29C8A57E00FE770E /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6566FD29C8A57E00FE770E /* MockURLSession.swift */; };
 		2A6566FF29C8B78700FE770E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52229C22E7B009D5074 /* APIClient.swift */; };
-		2A65670029C8B8BF00FE770E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C52229C22E7B009D5074 /* APIClient.swift */; };
 		2A65670229C8B9CA00FE770E /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670129C8B9CA00FE770E /* URLSession+.swift */; };
-		2A65670329C8BAFA00FE770E /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670129C8B9CA00FE770E /* URLSession+.swift */; };
 		2A65670529C8BD6800FE770E /* URLSessionDataTask+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */; };
-		2A65670629C8C1CF00FE770E /* URLSessionDataTask+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65670429C8BD6800FE770E /* URLSessionDataTask+.swift */; };
 		2AD8C4DD29C22B70009D5074 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4DC29C22B70009D5074 /* AppDelegate.swift */; };
 		2AD8C4DF29C22B70009D5074 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4DE29C22B70009D5074 /* SceneDelegate.swift */; };
 		2AD8C4E129C22B70009D5074 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C4E029C22B70009D5074 /* ViewController.swift */; };
@@ -38,7 +35,6 @@
 		2AD8C51629C22BBE009D5074 /* SchoolSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51029C22BBE009D5074 /* SchoolSearchModels.swift */; };
 		2AD8C51729C22BBE009D5074 /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51129C22BBE009D5074 /* SchoolSearchViewController.swift */; };
 		2AD8C51829C22BBE009D5074 /* SchoolSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51229C22BBE009D5074 /* SchoolSearchInteractor.swift */; };
-		2AD8C51E29C22C30009D5074 /* SchoolSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51A29C22C30009D5074 /* SchoolSearchViewControllerTests.swift */; };
 		2AD8C51F29C22C30009D5074 /* SchoolSearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51B29C22C30009D5074 /* SchoolSearchInteractorTests.swift */; };
 		2AD8C52029C22C30009D5074 /* SchoolSearchWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51C29C22C30009D5074 /* SchoolSearchWorkerTests.swift */; };
 		2AD8C52129C22C30009D5074 /* SchoolSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8C51D29C22C30009D5074 /* SchoolSearchPresenterTests.swift */; };
@@ -94,7 +90,6 @@
 		2AD8C51029C22BBE009D5074 /* SchoolSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchModels.swift; sourceTree = "<group>"; };
 		2AD8C51129C22BBE009D5074 /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
 		2AD8C51229C22BBE009D5074 /* SchoolSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchInteractor.swift; sourceTree = "<group>"; };
-		2AD8C51A29C22C30009D5074 /* SchoolSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		2AD8C51B29C22C30009D5074 /* SchoolSearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchInteractorTests.swift; sourceTree = "<group>"; };
 		2AD8C51C29C22C30009D5074 /* SchoolSearchWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchWorkerTests.swift; sourceTree = "<group>"; };
 		2AD8C51D29C22C30009D5074 /* SchoolSearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchPresenterTests.swift; sourceTree = "<group>"; };
@@ -182,6 +177,7 @@
 		2AD8C4DB29C22B70009D5074 /* NYC Youths */ = {
 			isa = PBXGroup;
 			children = (
+				2AD8C52229C22E7B009D5074 /* APIClient.swift */,
 				2A6566F829C4D0DA00FE770E /* Extensions */,
 				2A6566E629C4C25100FE770E /* SchoolDetailsScene */,
 				2AD8C50C29C22B8D009D5074 /* SearchScene */,
@@ -192,7 +188,6 @@
 				2AD8C4E529C22B74009D5074 /* Assets.xcassets */,
 				2AD8C4E729C22B74009D5074 /* LaunchScreen.storyboard */,
 				2AD8C4EA29C22B74009D5074 /* Info.plist */,
-				2AD8C52229C22E7B009D5074 /* APIClient.swift */,
 			);
 			path = "NYC Youths";
 			sourceTree = "<group>";
@@ -234,7 +229,6 @@
 		2AD8C51929C22C10009D5074 /* SearchScene */ = {
 			isa = PBXGroup;
 			children = (
-				2AD8C51A29C22C30009D5074 /* SchoolSearchViewControllerTests.swift */,
 				2AD8C51B29C22C30009D5074 /* SchoolSearchInteractorTests.swift */,
 				2AD8C51C29C22C30009D5074 /* SchoolSearchWorkerTests.swift */,
 				2AD8C51D29C22C30009D5074 /* SchoolSearchPresenterTests.swift */,
@@ -401,16 +395,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6566FE29C8A57E00FE770E /* MockURLSession.swift in Sources */,
-				2A65670629C8C1CF00FE770E /* URLSessionDataTask+.swift in Sources */,
 				2AD8C52129C22C30009D5074 /* SchoolSearchPresenterTests.swift in Sources */,
 				2AD8C51F29C22C30009D5074 /* SchoolSearchInteractorTests.swift in Sources */,
-				2AD8C51E29C22C30009D5074 /* SchoolSearchViewControllerTests.swift in Sources */,
-				2A65670329C8BAFA00FE770E /* URLSession+.swift in Sources */,
 				2A6566FC29C8A42C00FE770E /* APIClientTests.swift in Sources */,
 				2AD8C4F429C22B74009D5074 /* NYC_YouthsTests.swift in Sources */,
 				2AD8C52029C22C30009D5074 /* SchoolSearchWorkerTests.swift in Sources */,
 				2AD8C52529C269B2009D5074 /* MockAPIClient.swift in Sources */,
-				2A65670029C8B8BF00FE770E /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

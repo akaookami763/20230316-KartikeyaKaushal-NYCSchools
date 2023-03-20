@@ -5,7 +5,7 @@
 //  Created by Kartikeya Kaushal on 3/20/23.
 //
 
-import NYC_Youths
+@testable import NYC_Youths
 import XCTest
 import Combine
 

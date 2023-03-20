@@ -15,11 +15,11 @@ struct APIClient {
         self.network = network
     }
     
-    //The response information and data parsed as its data type
-    struct Response<T> {
-        let data: T
-        let response: URLResponse?
-    }
+//    //The response information and data parsed as its data type
+//    struct Response<T> {
+//        let data: T
+//        let response: URLResponse?
+//    }
     
     func run<T: Decodable>(_ request: URLRequest) -> Future<T, Error> {
         return Future { promise in

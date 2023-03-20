@@ -19,6 +19,7 @@ class SchoolSearchWorkerTests: XCTestCase
     
     var sut: SchoolSearchWorker!
     var delegateTest: SchoolSearchWorkerDelegateTest!
+    var mockAPIClient: APIClient!  // TODO: Refactor to an actual mock to avoid testing APIClient twice
     
     // MARK: Test lifecycle
     
@@ -26,7 +27,6 @@ class SchoolSearchWorkerTests: XCTestCase
     {
         super.setUp()
         delegateTest = SchoolSearchWorkerDelegateTest()
-        sut = SchoolSearchWorker(delegate: delegateTest)
     }
     
     override func tearDown()
@@ -52,14 +52,19 @@ class SchoolSearchWorkerTests: XCTestCase
     
     func testGetSchoolsFromSource()
     {
-        let schools = sut.getSchoolData()
-        XCTAssertEqual([[:]], schools)
+        sut = SchoolSearchWorker(client: setupClient(data: Data(base64Encoded: "[{}]"), statusCode: 200, error: nil), delegate: delegateTest)
+        sut.getData()
     }
     
     func testErrorFromSchoolDataSource() {
-        let error = sut.getSchoolData()
-        XCTAssertEqual("API Failure", error)
+        sut = SchoolSearchWorker(client: setupClient(data: nil, statusCode: 500, error: NSError(domain: "Test Error", code: 500, userInfo: nil)), delegate: delegateTest)
+        sut.getData()
     }
     
-    fu
+    private func setupClient(data: Data?, statusCode: Int, error: Error?) -> APIClient {
+        let mockSession = MockURLSession(data: data, responseCode: statusCode, error: error)
+        
+        return NYC_Youths.APIClient(network: mockSession)
+    }
+
 }//end SchoolSearchWorkerTests
