@@ -13,20 +13,20 @@
 @testable import NYC_Youths
 import XCTest
 
-class SchoolSearchWorkerTests: XCTestCase
+class SchoolSearchWorkerTests: XCTestCase, SchoolSearchWorkerDelegate
 {
     // MARK: Subject under test
     
     var sut: SchoolSearchWorker!
-    var delegateTest: SchoolSearchWorkerDelegateTest!
     var mockAPIClient: APIClient!  // TODO: Refactor to an actual mock to avoid testing APIClient twice
     
+    var successExpectation: XCTestExpectation!
+    var failureExpectation: XCTestExpectation!
     // MARK: Test lifecycle
     
     override func setUp()
     {
         super.setUp()
-        delegateTest = SchoolSearchWorkerDelegateTest()
     }
     
     override func tearDown()
@@ -38,27 +38,33 @@ class SchoolSearchWorkerTests: XCTestCase
     
     // MARK: Test doubles
     
-    struct SchoolSearchWorkerDelegateTest: SchoolSearchWorkerDelegate {
         func handleSchoolData(_ data: [SchoolData]) {
-            XCTAssert(data.count > 0)
+            successExpectation.fulfill()
         }
         
         func handleError(_ error: Error) {
-            XCTAssertNotNil(error)
+            failureExpectation.fulfill()
         }
-    }
     
     // MARK: Tests
-    
+    // TODO: Make mock data for api return
     func testGetSchoolsFromSource()
     {
-        sut = SchoolSearchWorker(client: setupClient(data: Data(base64Encoded: "[{}]"), statusCode: 200, error: nil), delegate: delegateTest)
+        self.successExpectation = self.expectation(description: "Success")
+        sut = SchoolSearchWorker(client: setupClient(data: Data(base64Encoded: "[{}]"), statusCode: 200, error: nil), delegate: self)
+                
         sut.getData()
+        wait(for: [successExpectation], timeout: 2)
+
     }
     
     func testErrorFromSchoolDataSource() {
-        sut = SchoolSearchWorker(client: setupClient(data: nil, statusCode: 500, error: NSError(domain: "Test Error", code: 500, userInfo: nil)), delegate: delegateTest)
+        self.failureExpectation = self.expectation(description: "Failure")
+        sut = SchoolSearchWorker(client: setupClient(data: nil, statusCode: 500, error: NSError(domain: "Test Error", code: 500, userInfo: nil)), delegate: self)
+
         sut.getData()
+        wait(for: [failureExpectation], timeout: 2)
+
     }
     
     private func setupClient(data: Data?, statusCode: Int, error: Error?) -> APIClient {
